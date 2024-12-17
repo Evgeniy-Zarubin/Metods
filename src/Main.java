@@ -7,8 +7,8 @@ public class Main {
         checkYear(year1);
 
         int clientOS = 1;
-        int currentYear = LocalDate.now().getYear();
-        checkVersion(clientOS, currentYear);
+        int deviceYear = 2018;
+        checkVersion(clientOS, deviceYear);
 
         int delivery = checkDelivery(70);
         if (delivery != 0) {
@@ -37,17 +37,17 @@ public class Main {
     }
 
     public static void checkVersion(int clientOS2, int clientDeviceYear) {
-
-        if (clientOS2 == 1 && clientDeviceYear < 2015) {
+        int currentYear = LocalDate.now().getYear();
+        if (clientOS2 == 1 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для Android по ссылке");
-        } else if (clientOS2 == 1 && clientDeviceYear >= 2015) {
+        } else if (clientOS2 == 1 && clientDeviceYear == currentYear) {
             System.out.println("Установите версию приложения для Android по ссылке");
-        } else if (clientOS2 == 0 && clientDeviceYear < 2015) {
+        } else if (clientOS2 == 0 && clientDeviceYear < currentYear) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-        } else if (clientOS2 == 0 && clientDeviceYear >= 2015) {
+        } else if (clientOS2 == 0 && clientDeviceYear == currentYear) {
             System.out.println("Установите версию приложения для iOS по ссылке");
         } else {
-            System.out.println("Пора обновить телефон");
+            System.out.println("Телефон сломан");
         }
     }
 
