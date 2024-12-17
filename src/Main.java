@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) {
@@ -6,12 +7,12 @@ public class Main {
         checkYear(year1);
 
         int clientOS = 1;
-        int deviceYear = 2015;
-        checkVersion(clientOS, deviceYear);
+        int currentYear = LocalDate.now().getYear();
+        checkVersion(clientOS, currentYear);
 
-        int delivery = checkDelivery(110);
+        int delivery = checkDelivery(70);
         if (delivery != 0) {
-            System.out.println("Потребуется " + delivery + " дней: + срок доставки");
+            System.out.println("Потребуется дней: " + delivery);
         } else {
             System.out.println("Доставки нет");
         }
